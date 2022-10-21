@@ -1,0 +1,338 @@
+/*
+    This file contains general site-wide formatting
+    Contents:
+        > Fonts (self-hosted because of Google Fonts apparently falling foul of GDPR)
+        > Tag formatting
+            >> body
+        > Page layout classes (including the notepaper effect and the header)
+        > <a ...> formatting, but with higher specificity to allow styles to be applied to children of <a ...>
+*/
+@font-face {
+  font-family: "Handwriting";
+  src: url("../../../static/fonts/ArchitectsDaughter-Regular.ttf");
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #aaa9a3;
+  color: black;
+  font-family: "Handwriting";
+
+  margin: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  outline: none;
+}
+
+.whole-page-container {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 5px;
+}
+
+/* Explanation: why are .notepad-margin and .hole-punched two separate elements?
+    Originally the "hole" divs were children of the margin div, but this caused an issue with the multiply blending.
+    The pink vertical line of the margin should be multiplied, so it shows through anything "drawn on top" of it.
+    The "holes" should not be multiplied with the paper lines or page contents, because then they don't look like holes.
+    If the holes are children of the margin div they end up in the same stacking context and so either both are
+    blended or neither is blended.
+    Solution: two separate elements, with the holes "on top" of everything (so they can appear suitably hole-y) but
+    with certain settings shared with the margin so they look like they're inside it.
+*/
+.notepad-margin,
+.hole-punched {
+  width: 10%;
+  height: 100%;
+}
+
+.notepad-margin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-right: 2px solid pink;
+  mix-blend-mode: multiply;
+}
+
+.hole-punched {
+  position: relative;
+  /* 
+      The hole-punched div is inside notepad-body, but the positions of the holes should also take into account
+      the height of the notepad-head (5rem, at the moment).
+      Positioning from bottom only needs to consider the taller page, so it's a simple +33% of head height.
+      Top needs to consider the taller page and the offset caused by the presence of the header. That's +33% head
+      height for the taller page, -100% head height for the offset, for a net -66% of head height.
+  */
+}
+.hole-punched div {
+  position: absolute;
+  left: 45%;
+  z-index: 2;
+  min-width: 16px;
+  width: 33%;
+  height: auto;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: #aaa9a3;
+}
+.hole-punched .top-hole {
+  top: calc(33% - (5rem / 3 * 2));
+}
+.hole-punched .bottom-hole {
+  bottom: calc(33% + (5rem / 3));
+}
+
+.notepad-head,
+.notepad-body {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.notepad-head {
+  position: relative;
+  width: 100%;
+  height: 5rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background: linear-gradient(white, white calc(100% - 3px), #9198e5 calc(100% - 1px), #9198e5 100%);
+}
+.notepad-head .main-logo {
+  min-width: 60px;
+  width: 20%;
+  max-width: 110px;
+}
+
+.notepad-head-contents {
+  position: absolute;
+  bottom: 3px;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+.notepad-head-contents nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.15rem;
+  min-width: 310px;
+  width: 100%;
+  max-width: 620px;
+  font-size: 0.8rem;
+}
+.notepad-head-contents nav .nav-text-box {
+  display: flex;
+  align-items: center;
+  height: 25px;
+  padding: 0 0.4rem 3px;
+}
+.notepad-head-contents nav .nav-icon-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: end;
+}
+.notepad-head-contents nav .nav-icon-container img {
+  height: auto;
+  width: 22px;
+  padding: 5px 3px;
+}
+.notepad-head-contents nav div.nav-text-box {
+  display: block;
+  background: url("../images/blob.svg");
+  background-size: 100% 32px;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 370px) {
+  .notepad-header .notepad-margin {
+    position: initial;
+    float: left;
+  }
+
+  .notepad-head-contents {
+    width: calc(90% - 2px);
+  }
+  .notepad-head-contents nav {
+    justify-content: space-around;
+    width: auto;
+    flex-grow: 2;
+  }
+}
+@media screen and (min-width: 570px) {
+  .notepad-head-contents {
+    justify-content: space-between;
+    gap: 3%;
+  }
+  .notepad-head-contents nav {
+    font-size: 1rem;
+  }
+  .notepad-head-contents nav .nav-icon-container img {
+    width: 32px;
+  }
+  .notepad-head-contents nav .nav-text-box {
+    height: 32px;
+    padding: 0 0.5rem 3px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .notepad-head-contents {
+    justify-content: space-around;
+  }
+  .notepad-head-contents nav {
+    font-size: 1.2rem;
+  }
+}
+.notepad-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: relative;
+}
+.notepad-body::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  mix-blend-mode: multiply;
+  background: repeating-linear-gradient(white, white calc(2rem - 2px), #9198e5 calc(2rem - 1px), #9198e5 2rem);
+  pointer-events: none;
+}
+.notepad-body .hole-punched {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.notepad-body .notepad-body-contents {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 1.6rem 3px 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.notepad-body .notepad-body-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 14rem;
+  width: 100%;
+  max-width: 16rem;
+  margin-bottom: 2rem;
+}
+.notepad-body .notepad-body-heading h1 {
+  display: inline;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0 1.5rem 0.2rem;
+  background-image: url("../images/sketchy-line-green.svg");
+  background-size: 100% 0.6rem;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+}
+.notepad-body .notepad-body-heading .subheading {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #141414;
+  position: relative;
+  bottom: 0.35rem;
+}
+
+@media screen and (min-width: 614px) {
+  .notepad-body {
+    align-items: flex-end;
+  }
+  .notepad-body .notepad-body-contents {
+    width: 90%;
+    padding-top: 0.75rem;
+    padding-top: 1.25rem;
+  }
+  .notepad-body .notepad-body-heading {
+    max-width: 22rem;
+  }
+  .notepad-body .notepad-body-heading h1 {
+    font-size: 2.5rem;
+    padding: 0 1.5rem;
+  }
+  .notepad-body .notepad-body-heading .subheading {
+    bottom: 0.65rem;
+    font-size: 1.7rem;
+  }
+}
+.notepad-head-contents nav a,
+.project a span {
+  border-bottom: 2px solid transparent;
+}
+
+.notepad-head-contents nav a:hover,
+.notepad-head-contents nav a:focus,
+.notepad-head-contents nav a:active,
+.project a:hover span,
+.project a:focus span,
+.project a:active span {
+  color: #00df38;
+  position: relative;
+  border-bottom: 2px solid #00E0FF;
+  border-bottom-left-radius: 5px/50px;
+  border-bottom-right-radius: 35px/8px;
+}
+.notepad-head-contents nav a:hover::before, .notepad-head-contents nav a:hover::after,
+.notepad-head-contents nav a:focus::before,
+.notepad-head-contents nav a:focus::after,
+.notepad-head-contents nav a:active::before,
+.notepad-head-contents nav a:active::after,
+.project a:hover span::before,
+.project a:hover span::after,
+.project a:focus span::before,
+.project a:focus span::after,
+.project a:active span::before,
+.project a:active span::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid #00E0FF;
+}
+.notepad-head-contents nav a:hover::before,
+.notepad-head-contents nav a:focus::before,
+.notepad-head-contents nav a:active::before,
+.project a:hover span::before,
+.project a:focus span::before,
+.project a:active span::before {
+  top: 2px;
+  left: 2px;
+  transform: rotate(-2deg);
+  border-bottom-left-radius: 7px/42px;
+  border-bottom-right-radius: 37px/5px;
+}
+.notepad-head-contents nav a:hover::after,
+.notepad-head-contents nav a:focus::after,
+.notepad-head-contents nav a:active::after,
+.project a:hover span::after,
+.project a:focus span::after,
+.project a:active span::after {
+  top: 0;
+  left: 2px;
+  transform: rotate(2deg);
+  border-bottom-left-radius: 5px/50px;
+  border-bottom-right-radius: 35px/8px;
+}
+
+/*# sourceMappingURL=main.css.map */
