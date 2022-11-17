@@ -8,13 +8,13 @@
     padding: 0.4rem 1rem;
 
     background: linear-gradient(90deg, #0e1415 0%, #195866 43%, #195866 57%, #0e1415 100%);
-    border: 1px solid #37616b;
-
+    border-bottom: 1px solid #37616b;
+    
     position: relative;
     width: 100%;
     box-sizing: border-box;
   }
-  
+
   .back-to-main-strip a{
     position: relative;
     z-index: 2;
@@ -36,3 +36,4 @@
 
     background: url(../images/beam-sparkles-small.png);
   }
+

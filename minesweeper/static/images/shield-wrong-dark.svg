@@ -13,7 +13,7 @@
    version="1.1"
    id="svg909"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="shield-white.svg">
+   sodipodi:docname="shield-wrong-dark.svg">
   <defs
      id="defs903" />
   <sodipodi:namedview
@@ -24,8 +24,8 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="16"
-     inkscape:cx="13.250673"
-     inkscape:cy="13.640002"
+     inkscape:cx="20.216641"
+     inkscape:cy="7.6701565"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -45,7 +45,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -54,10 +54,20 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       id="path838"
-       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="path1444"
+       style="display:inline;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        inkscape:label="solid"
-       d="m 15.990234,0.77539062 v 0.001953 L 4.6621094,2.2792969 C 4.6567542,19.93792 4.5552668,22.208342 15.990234,31.216797 v 0.0059 c 0.0015,-0.0012 0.0024,-0.0027 0.0039,-0.0039 0.0015,0.0012 0.0024,0.0027 0.0039,0.0039 l 0.002,-0.0059 0.002,0.0059 c 0.0015,-0.0012 0.0024,-0.0027 0.0039,-0.0039 0.0015,0.0012 0.0024,0.0027 0.0039,0.0039 v -0.0059 C 27.444734,22.208342 27.343258,19.93792 27.337891,2.2792969 L 16.009766,0.77734375 v -0.001953 L 16,0.77734375 Z"
-       transform="scale(0.26458333)" />
+       d="m 4.2330749,0.20850821 -2.9920653,0.396875 c -0.00142,4.66934759 -0.02791,5.27235899 2.9920653,7.65224609 2.014e-4,1.585e-4 3.175e-4,3.704e-4 5.292e-4,5.292e-4 8.97e-5,-7.07e-5 -8.97e-5,-4.498e-4 0,-5.292e-4 3.0199634,-2.3798871 2.9934691,-2.9828985 2.992053,-7.65224609 l -2.9920655,-0.396875 z m 0,1.00769049 h 5.292e-4 l 2.1151164,0.2790527 c 0.00101,3.2843266 0.00716,3.7103039 -2.1151164,5.3831338 -1.167e-4,-9.18e-5 -3.969e-4,9.21e-5 -5.292e-4,0 C 2.1107999,5.2055553 2.1169627,4.779578 2.1179586,1.4952514 Z" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;display:inline;fill:#4d4d4d;stroke-width:0.264583;"
+       x="2.7834556"
+       y="5.1137333"
+       id="text853"><tspan
+         sodipodi:role="line"
+         id="tspan851"
+         x="2.7834556"
+         y="5.1137333"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:Nunito;-inkscape-font-specification:Nunito;fill:#4d4d4d;stroke-width:0.264583;">X</tspan></text>
   </g>
 </svg>
