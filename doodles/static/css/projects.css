@@ -258,50 +258,50 @@
 }
 
 .javascript-icon {
-  background-image: url("../images/tech_js.svg");
+  background-image: url("../../../static/images/tech_js.svg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .html-icon {
-  background-image: url("../images/tech_html.svg");
+  background-image: url("../../../static/images/tech_html.svg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .scss-icon {
-  background-image: url("../images/tech_scss.svg");
+  background-image: url("../../../static/images/tech_scss.svg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .css-icon {
-  background-image: url("../images/tech_css.svg");
+  background-image: url("../../../static/images/tech_css.svg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .python-icon {
-  background-image: url("../images/tech_python.svg");
+  background-image: url("../../../static/images/tech_python.svg");
   background-size: 80%;
   background-repeat: no-repeat;
 }
 
 .django-icon {
-  background-image: url("../images/tech_django.svg");
+  background-image: url("../../../static/images/tech_django_green.svg");
   background-size: 65%;
   background-repeat: no-repeat;
 }
 
 .react-icon {
-  background-image: url("../images/tech_react.svg");
+  background-image: url("../../../static/images/tech_react.svg");
   background-size: 98%;
   background-position: 1px center;
   background-repeat: no-repeat;
 }
 
 .flask-icon {
-  background-image: url("../images/tech_flask.svg");
+  background-image: url("../../../static/images/tech_flask.svg");
   background-size: 75%;
   background-repeat: no-repeat;
 }
