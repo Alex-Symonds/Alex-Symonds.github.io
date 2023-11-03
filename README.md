@@ -4,3 +4,4 @@ Currently hosted on GitHub pages:
 * Minesweeper frontend project. [repo](https://github.com/Alex-Symonds/minesweeper-dev)
 * Second attempt at portfolio website. [repo](https://github.com/Alex-Symonds/portfolio-01)
 * Incomplete first attempt at portfolio website. [repo](https://github.com/Alex-Symonds/portfolio-00)
+* Event Planner (IA:LiT). [repo](https://github.com/Alex-Symonds/IALostInTimeEventPlanner)
